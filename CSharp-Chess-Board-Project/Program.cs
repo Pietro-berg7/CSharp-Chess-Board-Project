@@ -9,11 +9,20 @@ namespace CSharp_Chess_Board_Project
     {
         static void Main(string[] args)
         {
-            ChessPosition pos = new ChessPosition('c', 7);
+            try
+            {
+                Board board = new Board(8, 8);
 
-            Console.WriteLine(pos);
+                board.PlacePiece(new Tower(board, Color.Black), new Position(0, 0));
+                board.PlacePiece(new Tower(board, Color.White), new Position(1, 3));
+                board.PlacePiece(new King(board, Color.Black), new Position(0, 2));
 
-            Console.WriteLine(pos.ToPosition());
+                Screen.printBoard(board);
+            }
+            catch(BoardException e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             Console.ReadLine();
         }
