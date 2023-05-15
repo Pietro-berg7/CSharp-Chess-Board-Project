@@ -1,4 +1,4 @@
-﻿namespace CSharp_Chess_Board_Project.Board
+﻿namespace CSharp_Chess_Board_Project.board
 {
     internal class Position
     {

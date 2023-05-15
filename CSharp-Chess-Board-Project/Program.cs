@@ -1,4 +1,4 @@
-﻿using CSharp_Chess_Board_Project.Board;
+﻿using CSharp_Chess_Board_Project.board;
 using System;
 
 namespace CSharp_Chess_Board_Project
@@ -7,11 +7,8 @@ namespace CSharp_Chess_Board_Project
     {
         static void Main(string[] args)
         {
-            Position P;
+            Board board = new Board(8, 8);
 
-            P = new Position(3, 4);
-
-            Console.WriteLine("Position: " + P);
             Console.ReadLine();
         }
     }
