@@ -1,9 +1,10 @@
-﻿using CSharp_Chess_Board_Project.board;
-using CSharp_Chess_Board_Project.board.Exceptions;
-using CSharp_Chess_Board_Project.chess;
+﻿using CSharp_Chess_Board_Project.chess;
 using System;
+using tabuleiro;
+using tabuleiro.Exceptions;
+using xadrez;
 
-namespace CSharp_Chess_Board_Project
+namespace xadrez_console
 {
     class Program
     {
@@ -11,15 +12,24 @@ namespace CSharp_Chess_Board_Project
         {
             try
             {
-                Board board = new Board(8, 8);
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                board.PlacePiece(new Tower(board, Color.Black), new Position(0, 0));
-                board.PlacePiece(new Tower(board, Color.White), new Position(1, 3));
-                board.PlacePiece(new King(board, Color.Black), new Position(0, 2));
+                while (!partida.terminada)
+                {
+                    Console.Clear();
 
-                Screen.printBoard(board);
+                    Tela.imprimirTabuleiro(partida.tab);
+
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                    partida.executaMovimento(origem, destino);
+                }
+
             }
-            catch(BoardException e)
+            catch (TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
             }
