@@ -8,4 +8,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="xadrez\PartidaDeXadrez.cs~RF4182c36.TMP" />
+  </ItemGroup>
+
 </Project>
